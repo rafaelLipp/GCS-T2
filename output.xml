@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.8.2 on win32)" generated="20221111 14:54:18.040" rpa="false" schemaversion="3">
+<suite id="s1" name="Trab2" source="D:\Usuário\rafael\Desktop\Trab2\Trab2.robot">
+<test id="s1-t1" name="Criar arquivo com texto" line="11">
+<kw name="Create File" library="OperatingSystem">
+<arg>${PATH}</arg>
+<arg>${texto}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20221111 14:54:18.136" level="INFO" html="true">Created file '&lt;a href="file://D:\Usuário\rafael\Desktop\Trab2\texto.txt"&gt;D:\Usuário\rafael\Desktop\Trab2\texto.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221111 14:54:18.133" endtime="20221111 14:54:18.136"/>
+</kw>
+<status status="PASS" starttime="20221111 14:54:18.132" endtime="20221111 14:54:18.137"/>
+</test>
+<test id="s1-t2" name="Mostra a PATH" line="14">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${PATH}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221111 14:54:18.142" endtime="20221111 14:54:18.143"/>
+</kw>
+<status status="PASS" starttime="20221111 14:54:18.141" endtime="20221111 14:54:18.144"/>
+</test>
+<test id="s1-t3" name="lenght por linhas do arquivo" line="17">
+<kw name="Get File" library="OperatingSystem">
+<var>${contents}</var>
+<arg>${PATH}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20221111 14:54:18.148" level="INFO" html="true">Getting file '&lt;a href="file://D:\Usuário\rafael\Desktop\Trab2\texto.txt"&gt;D:\Usuário\rafael\Desktop\Trab2\texto.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20221111 14:54:18.150" level="INFO">${contents} = Trabalho GCS
+Robot FrameWork</msg>
+<status status="PASS" starttime="20221111 14:54:18.148" endtime="20221111 14:54:18.151"/>
+</kw>
+<kw name="Split To Lines" library="String">
+<var>@{list}</var>
+<arg>${contents}</arg>
+<doc>Splits the given string to lines.</doc>
+<msg timestamp="20221111 14:54:18.153" level="INFO">2 lines returned</msg>
+<msg timestamp="20221111 14:54:18.153" level="INFO">@{list} = [ Trabalho GCS | Robot FrameWork ]</msg>
+<status status="PASS" starttime="20221111 14:54:18.152" endtime="20221111 14:54:18.153"/>
+</kw>
+<for flavor="IN">
+<var>${line}</var>
+<value>@{list}</value>
+<iter>
+<var name="${line}">Trabalho GCS</var>
+<kw name="Get Length" library="BuiltIn">
+<arg>${line}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20221111 14:54:18.155" level="INFO">Length is 12</msg>
+<status status="PASS" starttime="20221111 14:54:18.154" endtime="20221111 14:54:18.155"/>
+</kw>
+<status status="PASS" starttime="20221111 14:54:18.154" endtime="20221111 14:54:18.155"/>
+</iter>
+<iter>
+<var name="${line}">Robot FrameWork</var>
+<kw name="Get Length" library="BuiltIn">
+<arg>${line}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20221111 14:54:18.156" level="INFO">Length is 15</msg>
+<status status="PASS" starttime="20221111 14:54:18.156" endtime="20221111 14:54:18.156"/>
+</kw>
+<status status="PASS" starttime="20221111 14:54:18.155" endtime="20221111 14:54:18.156"/>
+</iter>
+<status status="PASS" starttime="20221111 14:54:18.154" endtime="20221111 14:54:18.157"/>
+</for>
+<status status="PASS" starttime="20221111 14:54:18.146" endtime="20221111 14:54:18.158"/>
+</test>
+<test id="s1-t4" name="Teste se texto existe" line="24">
+<kw name="File Should Exist" library="OperatingSystem">
+<arg>${PATH}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<msg timestamp="20221111 14:54:18.166" level="INFO" html="true">File '&lt;a href="file://D:\Usuário\rafael\Desktop\Trab2\texto.txt"&gt;D:\Usuário\rafael\Desktop\Trab2\texto.txt&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20221111 14:54:18.164" endtime="20221111 14:54:18.166"/>
+</kw>
+<status status="PASS" starttime="20221111 14:54:18.161" endtime="20221111 14:54:18.167"/>
+</test>
+<test id="s1-t5" name="Teste se texto não esta vazio" line="27">
+<kw name="File Should Not Be Empty" library="OperatingSystem">
+<arg>${PATH}</arg>
+<doc>Fails if the specified file is empty.</doc>
+<msg timestamp="20221111 14:54:18.174" level="INFO" html="true">File '&lt;a href="file://D:\Usuário\rafael\Desktop\Trab2\texto.txt"&gt;D:\Usuário\rafael\Desktop\Trab2\texto.txt&lt;/a&gt;' contains 29 bytes.</msg>
+<status status="PASS" starttime="20221111 14:54:18.173" endtime="20221111 14:54:18.175"/>
+</kw>
+<status status="PASS" starttime="20221111 14:54:18.172" endtime="20221111 14:54:18.176"/>
+</test>
+<status status="PASS" starttime="20221111 14:54:18.043" endtime="20221111 14:54:18.181"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="Trab2">Trab2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
